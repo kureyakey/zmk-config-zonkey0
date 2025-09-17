@@ -2,15 +2,7 @@ file_format: "1"
 id: zonkey
 name: zonkey
 type: shield
-url: https://github.com/kureyakey/zonkey
-requires: [pro_micro]
-exposes: [i2c_oled]
+url: https://github.com/pukuhei/zonkey.git
+requires: [seeeduino_xiao_ble]
 features:
   - keys
-  - display
-  - studio
-siblings:
-  - zonkey_left
-  - zonkey_right
-  - zonkey_left_peripheral
-  - zonkey_dongle_xiao
