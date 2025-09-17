@@ -1,0 +1,14 @@
+# Copyright (c) 2020 Pete Johanson
+# SPDX-License-Identifier: MIT
+
+config SHIELD_ZONKEY_LEFT
+    def_bool $(shields_list_contains,zonkey_left)
+
+config SHIELD_ZONKEY_RIGHT
+    def_bool $(shields_list_contains,zonkey_right)
+
+config SHIELD_ZONEKY_LEFT_PERIPHERAL
+    def_bool $(shields_list_contains,zonkey_left_peripheral)
+
+config SHIELD_ZONKEY_DONGLE_XIAO
+    def_bool $(shields_list_contains,zonkey_dongle_xiao)
