@@ -1,0 +1,16 @@
+file_format: "1"
+id: zonkey
+name: zonkey
+type: shield
+url: https://github.com/kureyakey/zonkey
+requires: [pro_micro]
+exposes: [i2c_oled]
+features:
+  - keys
+  - display
+  - studio
+siblings:
+  - lily58_left
+  - lily58_right
+  - lily58_left_peripheral
+  - lily58_dongle_xiao
