@@ -1,25 +1,40 @@
-# This file generates the GitHub Actions matrix.
-# For simple board + shield combinations, add them to the top level board and
-# shield arrays, for more control, add individual board + shield combinations
-# to the `include` property. You can also use the `cmake-args` property to
-# pass flags to the build command, `snippet` to add a Zephyr snippet, and
-# `artifact-name` to assign a name to distinguish build outputs from each other:
-#
-# board: [ "nice_nano_v2" ]
-# shield: [ "corne_left", "corne_right" ]
-# include:
-#   - board: bdn9_rev2
-#   - board: nice_nano_v2
-#     shield: reviung41
-#   - board: nice_nano_v2
-#     shield: corne_left
-#     snippet: studio-rpc-usb-uart
-#     cmake-args: -DCONFIG_ZMK_STUDIO=y
-#     artifact-name: corne_left_with_studio
-#
----
 include:
+
+  # nice!oled zonkey
   - board: nice_nano_v2
-    shield: corne_left
+    shield: zonkey_left nice_oled
+    cmake-args: -DCONFIG_ZMK_KEYBOARD_NAME=\"zonkey_Oled\"  -DCONFIG_ZMK_STUDIO=y -DCONFIG_ZMK_SLEEP=y -DCONFIG_ZMK_IDLE_TIMEOUT=60000
+    artifact-name: nice_zonkey_left_oled
+    snippet: studio-rpc-usb-uart
   - board: nice_nano_v2
-    shield: corne_right
+    shield: zonkey_right nice_oled
+    cmake-args: -DCONFIG_ZMK_SLEEP=y -DCONFIG_ZMK_IDLE_TIMEOUT=60000
+    artifact-name: nice_zonkey_right_oled
+
+  # peripheral_left
+  - board: zobnkey_v2
+    shield: zonkey_left_peripheral nice_oled
+    cmake-args: -DCONFIG_ZMK_SLEEP=y -DCONFIG_ZMK_IDLE_TIMEOUT=60000
+    artifact-name: nice_zonkey_left_peripheral_oled
+
+  # Xiao_Dongle
+  - board: seeeduino_xiao_ble
+    shield: zonkey_dongle_xiao oled_adapter_seeeduino_xiao_ble_128x64 dongle_display
+    cmake-args: -DCONFIG_ZMK_KEYBOARD_NAME=\"zonkeyDongle_X\" -DCONFIG_ZMK_STUDIO=y -DCONFIG_ZMK_IDLE_TIMEOUT=60000
+    artifact-name: xiao_zonkey_dongle_xiao_oled
+    snippet: studio-rpc-usb-uart
+
+  ### ZONKEY END ###
+
+
+  ### SETTINGS_RESET START ###
+  - board: nice_nano_v2
+    shield: settings_reset
+    artifact-name: nice_settings_reset
+  - board: seeeduino_xiao_ble
+    shield: settings_reset
+    artifact-name: xiao_settings_reset
+  - board: puchi_ble_v1
+    shield: settings_reset
+    artifact-name: puchi_settings_reset
+  ### SETTINGS_RESET END ###
